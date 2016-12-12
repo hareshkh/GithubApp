@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.sdsmdg.hareshkh.githubapp.tabs.Notifications;
+import com.sdsmdg.hareshkh.githubapp.tabs.Profile;
 import com.sdsmdg.hareshkh.githubapp.tabs.Repositories;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class Content extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Notifications(), "Notifications");
         adapter.addFragment(new Repositories(), "Repositories");
+        adapter.addFragment(new Profile(), "Profile");
         viewPager.setAdapter(adapter);
     }
 
