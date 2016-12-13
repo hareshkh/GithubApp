@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "96907498613",
+    "firebase_url": "https://githubapp-1c486.firebaseio.com",
+    "project_id": "githubapp-1c486",
+    "storage_bucket": "githubapp-1c486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96907498613:android:e5b01eda2bb2e6d9",
+        "android_client_info": {
+          "package_name": "com.sdsmdg.hareshkh.githubapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96907498613-f787uoh7vcen2u73kmn6qsigaoqkj2ac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM0jiuH4iVabSfX6z9bgyVUg_b1BXfmnc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
