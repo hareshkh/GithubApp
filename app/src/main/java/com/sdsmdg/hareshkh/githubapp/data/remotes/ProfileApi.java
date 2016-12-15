@@ -20,7 +20,8 @@ public interface ProfileApi {
 
         public static ProfileApi getInstance() {
             if (service == null) {
-                Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
+                Retrofit retrofit = new Retrofit.Builder()
+                        .addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
                 service = retrofit.create(ProfileApi.class);
                 return service;
             } else {

@@ -45,5 +45,8 @@ captures/
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
 
+# Config File
+app/src/main/java/com/sdsmdg/hareshkh/githubapp/Config.java
+
 ### Android Patch ###
 gen-external-apklibs
