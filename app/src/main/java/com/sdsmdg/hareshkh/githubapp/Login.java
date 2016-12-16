@@ -1,5 +1,6 @@
 package com.sdsmdg.hareshkh.githubapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         webView = (WebView) findViewById(R.id.login_browser);
         button = (Button) findViewById(R.id.login_button);
-        sharedPreferences = getSharedPreferences("MY_PREFERENCES",MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("MY_PREFERENCES", MODE_PRIVATE);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class Login extends AppCompatActivity {
                         Log.e("Login", url);
                         if (url.contains("code")) {
                             CODE = url.substring(61, 81);
-                            Toast.makeText(Login.this, "" + CODE, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Code recieved. Acquiring OAuth Creds...", Toast.LENGTH_SHORT).show();
                             Log.e("Login", CODE);
                             editor = sharedPreferences.edit();
                             editor.putString("CODE", CODE);
@@ -74,9 +75,13 @@ public class Login extends AppCompatActivity {
                                 public void onResponse(Call<OauthModel> call, Response<OauthModel> response) {
                                     oAuthToken = response.body().getAccessToken();
                                     Log.e("Login", oAuthToken);
+                                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                     editor = sharedPreferences.edit();
                                     editor.putString("OAUTH", oAuthToken);
                                     editor.commit();
+                                    Intent intent = new Intent(Login.this, Content.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
 
                                 @Override

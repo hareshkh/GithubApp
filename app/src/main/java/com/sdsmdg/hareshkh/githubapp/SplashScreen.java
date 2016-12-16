@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -19,6 +20,8 @@ public class SplashScreen extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MY_PREFERENCES", MODE_PRIVATE);
         Login.oAuthToken = sharedPreferences.getString("OAUTH", "");
         Login.CODE = sharedPreferences.getString("CODE", "");
+
+        Log.e("Splash",Login.oAuthToken);
 
         if (Login.oAuthToken == "") {
             intent = new Intent(SplashScreen.this, Login.class);
