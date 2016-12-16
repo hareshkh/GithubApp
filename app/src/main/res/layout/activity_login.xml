@@ -16,6 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="LOGIN"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/textColorPrimary"
         android:visibility="visible" />
 
     <WebView
