@@ -1,6 +1,5 @@
 package com.sdsmdg.hareshkh.githubapp.data.remotes;
 
-
 import com.sdsmdg.hareshkh.githubapp.data.models.profile.ProfileModel;
 
 import retrofit2.Call;

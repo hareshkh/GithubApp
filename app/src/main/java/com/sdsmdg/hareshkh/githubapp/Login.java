@@ -9,16 +9,25 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.sdsmdg.hareshkh.githubapp.data.models.oauth.OauthModel;
+import com.sdsmdg.hareshkh.githubapp.data.remotes.OauthApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Login extends AppCompatActivity {
 
     WebView webView;
     Button button;
-    private final String AUTH_GH_URL = "https://github.com/login/oauth/authorize";
-    private final String CLIENT_ID = Config.GITHUB_CLIENT_ID;
-    private final String CLIENT_SECRET = Config.GITHUB_CLIENT_SECRET;
-    private final String REDIRECT_URL = "https://githubapp-1c486.firebaseapp.com/__/auth/handler";
-    private final String SCOPE = "user%20notifications";
-    private String CODE = "";
+    public final static String AUTH_GH_URL = "https://github.com/login/oauth/authorize";
+    public final static String TOKEN_GH_URL = "https://github.com/login/oauth/";
+    public final static String CLIENT_ID = Config.GITHUB_CLIENT_ID;
+    public final static String CLIENT_SECRET = Config.GITHUB_CLIENT_SECRET;
+    public final static String REDIRECT_URL = "https://githubapp-1c486.firebaseapp.com/__/auth/handler";
+    public final static String SCOPE = "user%20notifications";
+    public static String CODE = "";
+    public static String oAuthToken = "";
 
 
     @Override
@@ -42,6 +51,28 @@ public class Login extends AppCompatActivity {
                             CODE = url.substring(61, 81);
                             Toast.makeText(Login.this, "" + CODE, Toast.LENGTH_SHORT).show();
                             Log.e("Login", CODE);
+
+                            Log.e("Login", "PostReq");
+                            //POST REQUEST HERE.
+                            OauthApi.Factory.getInstance().getOauthModel(
+                                    CLIENT_ID,
+                                    CLIENT_SECRET,
+                                    CODE,
+                                    REDIRECT_URL,
+                                    "random",
+                                    "application/json"
+                            ).enqueue(new Callback<OauthModel>() {
+                                @Override
+                                public void onResponse(Call<OauthModel> call, Response<OauthModel> response) {
+                                    oAuthToken = response.body().getAccessToken();
+                                    Log.e("Login", oAuthToken);
+                                }
+
+                                @Override
+                                public void onFailure(Call<OauthModel> call, Throwable t) {
+
+                                }
+                            });
                             return true;
                         } else {
                             return false;
