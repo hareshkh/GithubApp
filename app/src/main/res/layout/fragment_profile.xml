@@ -5,33 +5,32 @@
     android:layout_height="match_parent"
     tools:context="com.sdsmdg.hareshkh.githubapp.tabs.Profile">
 
-
     <ImageView
-        android:id="@+id/profilePhoto"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
+        android:id="@+id/profile_photo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="20dp"
+        android:contentDescription="Splash Image" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profilePhoto"
+        android:layout_below="@+id/profile_photo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:text=""
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/place"
+        android:id="@+id/institute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="7dp"
         android:text=""
         android:textSize="12sp" />
+
 </RelativeLayout>
