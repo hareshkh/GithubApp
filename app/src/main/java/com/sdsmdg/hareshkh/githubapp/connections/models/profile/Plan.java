@@ -1,4 +1,4 @@
-package com.sdsmdg.hareshkh.githubapp.data.models.profile;
+package com.sdsmdg.hareshkh.githubapp.connections.models.profile;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

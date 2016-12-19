@@ -1,7 +1,7 @@
-package com.sdsmdg.hareshkh.githubapp.data.remotes;
+package com.sdsmdg.hareshkh.githubapp.connections.remotes;
 
 import com.sdsmdg.hareshkh.githubapp.Login;
-import com.sdsmdg.hareshkh.githubapp.data.models.oauth.OauthModel;
+import com.sdsmdg.hareshkh.githubapp.connections.models.oauth.OauthModel;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;

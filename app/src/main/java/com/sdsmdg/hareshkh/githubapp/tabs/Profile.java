@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sdsmdg.hareshkh.githubapp.Login;
-import com.sdsmdg.hareshkh.githubapp.ProgressDialogHelper;
+import com.sdsmdg.hareshkh.githubapp.helpers.ProgressDialogHelper;
 import com.sdsmdg.hareshkh.githubapp.R;
-import com.sdsmdg.hareshkh.githubapp.data.models.profile.ProfileModel;
-import com.sdsmdg.hareshkh.githubapp.data.remotes.ProfileApi;
+import com.sdsmdg.hareshkh.githubapp.connections.models.profile.ProfileModel;
+import com.sdsmdg.hareshkh.githubapp.connections.remotes.ProfileApi;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;

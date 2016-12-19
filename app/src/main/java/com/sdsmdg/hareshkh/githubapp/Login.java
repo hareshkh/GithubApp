@@ -11,8 +11,9 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.sdsmdg.hareshkh.githubapp.data.models.oauth.OauthModel;
-import com.sdsmdg.hareshkh.githubapp.data.remotes.OauthApi;
+import com.sdsmdg.hareshkh.githubapp.connections.models.oauth.OauthModel;
+import com.sdsmdg.hareshkh.githubapp.connections.remotes.OauthApi;
+import com.sdsmdg.hareshkh.githubapp.helpers.Config;
 
 import retrofit2.Call;
 import retrofit2.Callback;

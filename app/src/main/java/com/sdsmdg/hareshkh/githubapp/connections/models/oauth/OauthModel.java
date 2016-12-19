@@ -1,4 +1,4 @@
-package com.sdsmdg.hareshkh.githubapp.data.models.oauth;
+package com.sdsmdg.hareshkh.githubapp.connections.models.oauth;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

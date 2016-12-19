@@ -1,4 +1,4 @@
-package com.sdsmdg.hareshkh.githubapp;
+package com.sdsmdg.hareshkh.githubapp.helpers;
 
 import android.app.ProgressDialog;
 import android.content.Context;
