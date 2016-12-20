@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     public final static String CLIENT_ID = Config.GITHUB_CLIENT_ID;
     public final static String CLIENT_SECRET = Config.GITHUB_CLIENT_SECRET;
     public final static String REDIRECT_URL = "https://githubapp-1c486.firebaseapp.com/__/auth/handler";
-    public final static String SCOPE = "user%20notifications";
+    public final static String SCOPE = "user%20notifications%20repo";
     public static String CODE;
     public static String oAuthToken;
     SharedPreferences sharedPreferences;
