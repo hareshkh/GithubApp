@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context="com.sdsmdg.hareshkh.githubapp.tabs.Repositories">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repositories here."
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <ListView
+        android:id="@+id/repo_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp" />
 </RelativeLayout>
