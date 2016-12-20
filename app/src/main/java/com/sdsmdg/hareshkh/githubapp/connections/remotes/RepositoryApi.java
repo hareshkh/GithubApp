@@ -1,5 +1,6 @@
 package com.sdsmdg.hareshkh.githubapp.connections.remotes;
 
+import com.sdsmdg.hareshkh.githubapp.Login;
 import com.sdsmdg.hareshkh.githubapp.connections.models.repository.RepositoryModel;
 
 import java.util.List;
@@ -12,12 +13,12 @@ import retrofit2.http.Query;
 
 public interface RepositoryApi {
 
-    String BASE_URL = "https://api.github.com/";
+    String BASE_URL = "https://api.github.com/user/";
 
-    @GET("user/repos")
+    @GET("repos")
     Call<List<RepositoryModel>> getRepositryModel(
             @Query("access_token") String token,
-            @Query("affiliation") String affiliations
+            @Query(value = "affiliation", encoded = true) String affiliations
     );
 
     class Factory {

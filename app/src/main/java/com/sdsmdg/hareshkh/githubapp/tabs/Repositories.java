@@ -58,7 +58,7 @@ public class Repositories extends Fragment {
                         ArrayList<RepositoryListItem> repoList = new ArrayList<>();
                         for (RepositoryModel r : responseList) {
                             repoList.add(new RepositoryListItem(r.getFork(), r.getName(), r.getOwner().getLogin()));
-                            Log.e("Repository", ""+r.getName());
+                            Log.e("Repository", "" + r.getName());
                         }
                         RepositoryListAdapter adapter = new RepositoryListAdapter(getActivity(), repoList);
                         repoListView.setAdapter(adapter);
