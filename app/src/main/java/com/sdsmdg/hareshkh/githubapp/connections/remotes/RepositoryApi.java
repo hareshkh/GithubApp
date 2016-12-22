@@ -1,6 +1,5 @@
 package com.sdsmdg.hareshkh.githubapp.connections.remotes;
 
-import com.sdsmdg.hareshkh.githubapp.Login;
 import com.sdsmdg.hareshkh.githubapp.connections.models.repository.RepositoryModel;
 
 import java.util.List;

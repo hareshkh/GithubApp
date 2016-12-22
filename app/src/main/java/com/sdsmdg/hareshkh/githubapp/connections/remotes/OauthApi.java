@@ -14,6 +14,7 @@ import retrofit2.http.POST;
 public interface OauthApi {
 
     String BASE_URL = Login.TOKEN_GH_URL;
+
     @FormUrlEncoded
     @POST("access_token")
     Call<OauthModel> getOauthModel(

@@ -1,6 +1,8 @@
 package com.sdsmdg.hareshkh.githubapp.connections.remotes;
 
-import com.sdsmdg.hareshkh.githubapp.connections.models.profile.ProfileModel;
+import com.sdsmdg.hareshkh.githubapp.connections.models.notification.NotificationModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -13,7 +15,7 @@ public interface NotificationApi {
     String BASE_URL = "https://api.github.com/";
 
     @GET("notifications")
-    Call<NotificationModel> getNotificationModel(@Query("access_token") String token);
+    Call<List<NotificationModel>> getNotificationModel(@Query("access_token") String token);
 
     class Factory {
         public static NotificationApi service;

@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class OauthModel {
+
     @SerializedName("access_token")
     @Expose
     private String accessToken;
@@ -37,5 +38,4 @@ public class OauthModel {
     public void setTokenType(String tokenType) {
         this.tokenType = tokenType;
     }
-
 }
