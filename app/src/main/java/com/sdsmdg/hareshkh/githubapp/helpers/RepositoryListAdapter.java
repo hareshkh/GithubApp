@@ -1,6 +1,7 @@
 package com.sdsmdg.hareshkh.githubapp.helpers;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +40,9 @@ public class RepositoryListAdapter extends ArrayAdapter<RepositoryListItem> {
         repoOwnerName.setText(currentRepo.getOwner());
 
         if (!currentRepo.isForked()) {
-            Picasso.with(getContext()).load(R.drawable.repoicon).fit().into(icon);
+            icon.setImageResource(R.drawable.repo);
         } else {
-            Picasso.with(getContext()).load(R.drawable.forkicon).fit().into(icon);
+            icon.setImageResource(R.drawable.repo_forked);
         }
 
         return listItemView;
