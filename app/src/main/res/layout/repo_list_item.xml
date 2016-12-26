@@ -1,35 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/repo_icon"
-        android:layout_width="42dp"
-        android:layout_height="50dp" />
+        android:layout_width="40dp"
+        android:layout_height="48dp"
+        android:layout_centerVertical="true" />
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/repo_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/repo_icon"
+        android:textColor="#1C3144"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/repo_owner_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/repo_name"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/repo_icon"
+        android:textColor="#596F62"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/star_container"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerHorizontal="true" />
 
         <TextView
-            android:id="@+id/repo_name"
+            android:id="@+id/star_count"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/star_container"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/repo_owner_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-</LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
