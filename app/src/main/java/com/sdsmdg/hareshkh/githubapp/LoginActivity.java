@@ -19,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     WebView webView;
     Button button;
@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +53,17 @@ public class Login extends AppCompatActivity {
                     @SuppressWarnings("deprecation")
                     @Override
                     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                        Log.e("Login", url);
+                        Log.e(TAG, url);
                         if (url.contains("code")) {
                             CODE = url.substring(61, 81);
-                            Toast.makeText(Login.this, "Code recieved. Acquiring OAuth Creds...", Toast.LENGTH_SHORT).show();
-                            Log.e("Login", CODE);
+                            Toast.makeText(LoginActivity.this, "Code recieved. Acquiring OAuth Creds...", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, CODE);
                             editor = sharedPreferences.edit();
                             editor.putString("CODE", CODE);
                             editor.putString("OAUTH", "");
                             editor.commit();
 
-                            Log.e("Login", "PostReq");
+                            Log.e(TAG, "PostReq");
                             //POST REQUEST HERE.
                             OauthApi.Factory.getInstance().getOauthModel(
                                     CLIENT_ID,
@@ -75,12 +76,12 @@ public class Login extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<OauthModel> call, Response<OauthModel> response) {
                                     oAuthToken = response.body().getAccessToken();
-                                    Log.e("Login", oAuthToken);
-                                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                    Log.e(TAG, oAuthToken);
+                                    Toast.makeText(LoginActivity.this, "LoginActivity Successful", Toast.LENGTH_SHORT).show();
                                     editor = sharedPreferences.edit();
                                     editor.putString("OAUTH", oAuthToken);
                                     editor.commit();
-                                    Intent intent = new Intent(Login.this, Content.class);
+                                    Intent intent = new Intent(LoginActivity.this, ContentActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

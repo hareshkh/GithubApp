@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sdsmdg.hareshkh.githubapp.Login;
+import com.sdsmdg.hareshkh.githubapp.LoginActivity;
 import com.sdsmdg.hareshkh.githubapp.helpers.ProgressDialogHelper;
 import com.sdsmdg.hareshkh.githubapp.R;
 import com.sdsmdg.hareshkh.githubapp.connections.models.profile.ProfileModel;
@@ -46,7 +46,7 @@ public class Profile extends Fragment {
     }
 
     public void getData() {
-        ProfileApi.Factory.getInstance().getProfileModel(Login.oAuthToken).enqueue(new Callback<ProfileModel>() {
+        ProfileApi.Factory.getInstance().getProfileModel(LoginActivity.oAuthToken).enqueue(new Callback<ProfileModel>() {
             @Override
             public void onResponse(Call<ProfileModel> call, Response<ProfileModel> response) {
                 name.setText(response.body().getName());

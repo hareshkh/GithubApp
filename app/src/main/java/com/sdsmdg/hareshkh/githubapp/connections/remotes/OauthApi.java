@@ -1,6 +1,6 @@
 package com.sdsmdg.hareshkh.githubapp.connections.remotes;
 
-import com.sdsmdg.hareshkh.githubapp.Login;
+import com.sdsmdg.hareshkh.githubapp.LoginActivity;
 import com.sdsmdg.hareshkh.githubapp.connections.models.oauth.OauthModel;
 
 import retrofit2.Call;
@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 
 public interface OauthApi {
 
-    String BASE_URL = Login.TOKEN_GH_URL;
+    String BASE_URL = LoginActivity.TOKEN_GH_URL;
 
     @FormUrlEncoded
     @POST("access_token")

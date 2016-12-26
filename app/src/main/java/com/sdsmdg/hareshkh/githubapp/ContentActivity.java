@@ -16,7 +16,7 @@ import com.sdsmdg.hareshkh.githubapp.tabs.Repositories;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Content extends AppCompatActivity {
+public class ContentActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;

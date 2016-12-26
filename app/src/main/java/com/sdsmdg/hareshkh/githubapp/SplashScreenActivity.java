@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     Intent intent;
     SharedPreferences sharedPreferences;
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +19,15 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         sharedPreferences = getSharedPreferences("MY_PREFERENCES", MODE_PRIVATE);
-        Login.oAuthToken = sharedPreferences.getString("OAUTH", "");
-        Login.CODE = sharedPreferences.getString("CODE", "");
+        LoginActivity.oAuthToken = sharedPreferences.getString("OAUTH", "");
+        LoginActivity.CODE = sharedPreferences.getString("CODE", "");
 
-        Log.e("Splash",Login.oAuthToken);
+        Log.e(TAG, LoginActivity.oAuthToken);
 
-        if (Login.oAuthToken == "") {
-            intent = new Intent(SplashScreen.this, Login.class);
+        if (LoginActivity.oAuthToken == "") {
+            intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
         } else {
-            intent = new Intent(SplashScreen.this, Content.class);
+            intent = new Intent(SplashScreenActivity.this, ContentActivity.class);
         }
 
         int SPLASH_TIME_OUT = 2000;

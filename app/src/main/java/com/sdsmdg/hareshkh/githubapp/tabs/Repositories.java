@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.sdsmdg.hareshkh.githubapp.Login;
+import com.sdsmdg.hareshkh.githubapp.LoginActivity;
 import com.sdsmdg.hareshkh.githubapp.R;
 import com.sdsmdg.hareshkh.githubapp.connections.models.repository.RepositoryModel;
 import com.sdsmdg.hareshkh.githubapp.connections.remotes.RepositoryApi;
@@ -50,7 +50,7 @@ public class Repositories extends Fragment {
     }
 
     public void populateList() {
-        RepositoryApi.Factory.getInstance().getRepositryModel(Login.oAuthToken, affiliations).enqueue(
+        RepositoryApi.Factory.getInstance().getRepositryModel(LoginActivity.oAuthToken, affiliations).enqueue(
                 new Callback<List<RepositoryModel>>() {
                     @Override
                     public void onResponse(Call<List<RepositoryModel>> call, Response<List<RepositoryModel>> response) {

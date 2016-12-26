@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.sdsmdg.hareshkh.githubapp.Login">
+    tools:context="com.sdsmdg.hareshkh.githubapp.LoginActivity">
 
     <Button
         android:id="@+id/login_button"
