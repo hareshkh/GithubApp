@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="60dp"
     tools:context="com.sdsmdg.hareshkh.githubapp.tabs.Notifications">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Notifications here."
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+    <ListView
+        android:id="@+id/notif_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp" />
 </RelativeLayout>
