@@ -22,11 +22,11 @@ public class NotificationListItem {
 
         String datePattern = "yyyy-mm-dd hh:mm:ss";
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdt = new SimpleDateFormat(datePattern);
+        SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
         String dateString = date.substring(0, 10) + " " + date.substring(11, 19);
 
         try {
-            this.date = sdt.parse(dateString);
+            this.date = sdf.parse(dateString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
