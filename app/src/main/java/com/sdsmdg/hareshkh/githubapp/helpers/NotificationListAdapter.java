@@ -54,14 +54,20 @@ public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> 
         repoName.setText(currentNotif.getRepositoryName());
         repoOwnerName.setText(currentNotif.getRepositoryOwnerName());
 
-        if (currentNotif.getType() == "Commit")
-            icon.setImageResource(R.drawable.commit);
-        else if (currentNotif.getType() == "PullRequest")
-            icon.setImageResource(R.drawable.pull_request);
-        else if (currentNotif.getType() == "Issue")
-            icon.setImageResource(R.drawable.issue);
-        else
-            icon.setImageResource(R.drawable.octoface);
+        switch (currentNotif.getType()) {
+            case "Commit":
+                icon.setImageResource(R.drawable.commit);
+                break;
+            case "PullRequest":
+                icon.setImageResource(R.drawable.pull_request);
+                break;
+            case "Issue":
+                icon.setImageResource(R.drawable.issue);
+                break;
+            default:
+                icon.setImageResource(R.drawable.octoface);
+                break;
+        }
 
         String datePattern = "yyyy-mm-dd hh:mm:ss";
         @SuppressLint("SimpleDateFormat")

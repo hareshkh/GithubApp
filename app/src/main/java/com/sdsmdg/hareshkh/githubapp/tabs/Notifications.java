@@ -61,7 +61,7 @@ public class Notifications extends Fragment {
                                     n.getRepository().getName(),
                                     n.getRepository().getOwner().getLogin(),
                                     n.getUpdatedAt()
-                                    ));
+                            ));
                         }
                         NotificationListAdapter adapter = new NotificationListAdapter(getActivity(), notifList);
                         notifListView.setAdapter(adapter);
