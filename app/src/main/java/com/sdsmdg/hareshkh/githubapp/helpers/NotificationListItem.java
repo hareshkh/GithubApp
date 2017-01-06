@@ -1,10 +1,12 @@
 package com.sdsmdg.hareshkh.githubapp.helpers;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class NotificationListItem {
     private String type;
@@ -20,13 +22,13 @@ public class NotificationListItem {
         this.repositoryName = repositoryName;
         this.repositoryOwnerName = repositoryOwnerName;
 
-        String datePattern = "yyyy-mm-dd hh:mm:ss";
+        String datePattern = "yyyy-MM-dd'T'hh:mm:ss'Z'";
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
-        String dateString = date.substring(0, 10) + " " + date.substring(11, 19);
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
         try {
-            this.date = sdf.parse(dateString);
+            this.date = sdf.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }

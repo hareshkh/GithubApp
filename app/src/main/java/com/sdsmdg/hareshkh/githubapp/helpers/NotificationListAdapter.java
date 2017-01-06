@@ -1,6 +1,5 @@
 package com.sdsmdg.hareshkh.githubapp.helpers;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -13,11 +12,7 @@ import android.widget.Toast;
 
 import com.sdsmdg.hareshkh.githubapp.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> {
 
@@ -69,29 +64,43 @@ public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> 
                 break;
         }
 
-        String datePattern = "yyyy-mm-dd hh:mm:ss";
-        @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
-        String currentTimeString = sdf.format(Calendar.getInstance().getTime());
-        Date currentTime;
         long timeDifference = 0;
-        try {
-            currentTime = sdf.parse(currentTimeString);
-            timeDifference = currentTime.getTime() - currentNotif.getDate().getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        timeDifference = System.currentTimeMillis() - currentNotif.getDate().getTime();
 
         timeDifference /= 1000; //Converting into seconds.
 
-        if (timeDifference < 60)
+        if (timeDifference < 60) {
             date.setText("Just Now");
-        else if (timeDifference < 3600) {
+        } else if (timeDifference < 60 * 60) {
             long minutes = timeDifference / 60;
-            date.setText(String.valueOf(minutes).concat(" minutes ago"));
-        } else {
+            long seconds = timeDifference % 60;
+            if (seconds >= 30)
+                minutes++;
+
+            if (minutes != 1)
+                date.setText(String.valueOf(minutes).concat(" minutes ago"));
+            else
+                date.setText("A minute ago");
+        } else if (timeDifference < 60 * 60 * 24) {
             long hours = timeDifference / (60 * 60);
-            date.setText(String.valueOf(hours).concat(" hours ago"));
+            long minutes = (timeDifference / 60) % 60;
+            if (minutes >= 30)
+                hours++;
+
+            if (hours != 1)
+                date.setText(String.valueOf(hours).concat(" hours ago"));
+            else
+                date.setText("An hour ago");
+        } else {
+            long days = timeDifference / (60 * 60 * 24);
+            long hours = (timeDifference / (60 * 60)) % 24;
+            if (hours >= 12)
+                days++;
+
+            if (days != 1)
+                date.setText(String.valueOf(days).concat(" days ago"));
+            else
+                date.setText("A day ago");
         }
 
         return listItemView;
