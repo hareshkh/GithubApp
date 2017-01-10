@@ -10,9 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sdsmdg.hareshkh.githubapp.LoginActivity;
 import com.sdsmdg.hareshkh.githubapp.R;
+import com.sdsmdg.hareshkh.githubapp.connections.remotes.NotificationReadApi;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> {
 
@@ -28,7 +34,7 @@ public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> 
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.notif_list_item, parent, false);
         }
 
-        NotificationListItem currentNotif = getItem(position);
+        final NotificationListItem currentNotif = getItem(position);
         ImageView icon = (ImageView) listItemView.findViewById(R.id.notif_icon);
         TextView reason = (TextView) listItemView.findViewById(R.id.notif_reason);
         TextView repoName = (TextView) listItemView.findViewById(R.id.notif_repo_name);
@@ -36,15 +42,30 @@ public class NotificationListAdapter extends ArrayAdapter<NotificationListItem> 
         TextView date = (TextView) listItemView.findViewById(R.id.notif_date);
         ImageView markRead = (ImageView) listItemView.findViewById(R.id.mark_read);
 
+        assert currentNotif != null;
+
         markRead.setImageResource(R.drawable.tick);
         markRead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Marked as Read", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Marking as read...", Toast.LENGTH_SHORT).show();
+                NotificationReadApi.Factory.getInstance().markNotificationRead(
+                        currentNotif.getId(),
+                        LoginActivity.oAuthToken).enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        String responseStatus = response.body();
+                        Toast.makeText(getContext(), "Marked as Read", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Toast.makeText(getContext(), "Request failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
-        assert currentNotif != null;
         reason.setText(currentNotif.getTitle());
         repoName.setText(currentNotif.getRepositoryName());
         repoOwnerName.setText(currentNotif.getRepositoryOwnerName());

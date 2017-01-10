@@ -1,7 +1,6 @@
 package com.sdsmdg.hareshkh.githubapp.helpers;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,14 +8,16 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class NotificationListItem {
+    private String id;
     private String type;
     private String title;
     private String repositoryName;
     private String repositoryOwnerName;
     private Date date;
 
-    public NotificationListItem(String type, String title, String repositoryName,
+    public NotificationListItem(String id, String type, String title, String repositoryName,
                                 String repositoryOwnerName, String date) {
+        this.id = id;
         this.type = type;
         this.title = title;
         this.repositoryName = repositoryName;
@@ -32,6 +33,10 @@ public class NotificationListItem {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getType() {

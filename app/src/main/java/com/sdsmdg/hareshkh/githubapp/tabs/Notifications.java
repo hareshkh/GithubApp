@@ -56,6 +56,7 @@ public class Notifications extends Fragment {
                         ArrayList<NotificationListItem> notifList = new ArrayList<>();
                         for (NotificationModel n : responseList) {
                             notifList.add(new NotificationListItem(
+                                    n.getId(),
                                     n.getSubject().getType(),
                                     n.getSubject().getTitle(),
                                     n.getRepository().getName(),
